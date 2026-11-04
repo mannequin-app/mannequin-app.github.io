@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mannequin: Support and Privacy</title>
+<meta name="description" content="Support and privacy policy for the Mannequin app.">
+<style>
+  /* Layout: one reading column; a summary line, then a table of everything the app handles, then the details. */
+  :root {
+    --bg: #f5f7fa;
+    --surface: #ffffff;
+    --ink: #151a21;
+    --muted: #586373;
+    --line: #dce2ea;
+    --accent: #1660d0;
+    --accent-soft: #e6effc;
+    --display: "Avenir Next", "Segoe UI", system-ui, sans-serif;
+    --body: system-ui, "Helvetica Neue", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0c0e12; --surface: #14181e; --ink: #e8ecf2; --muted: #9aa5b4;
+      --line: #262c35; --accent: #5ea4ff; --accent-soft: #152335; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0c0e12; --surface: #14181e; --ink: #e8ecf2; --muted: #9aa5b4;
+    --line: #262c35; --accent: #5ea4ff; --accent-soft: #152335; color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+  .page {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 3.5rem 4rem;
+    display: grid;
+    gap: 2.75rem;
+  }
+  header { display: grid; gap: 0.75rem; }
+  .app {
+    display: flex; align-items: center; gap: 0.6rem;
+    font-family: var(--display); font-weight: 700; font-size: 1rem; letter-spacing: 0.01em;
+  }
+  .app svg { width: 1.75rem; height: 1.75rem; flex: none; }
+  h1, h2 { font-family: var(--display); font-weight: 600; line-height: 1.15; text-wrap: balance; margin: 0; }
+  h1 { font-size: clamp(2rem, 6vw, 2.75rem); letter-spacing: -0.015em; }
+  h2 { font-size: 1.35rem; }
+  .date { color: var(--muted); font-size: 0.95rem; margin: 0; }
+  .lead {
+    font-size: 1.25rem; line-height: 1.5; margin: 0.5rem 0 0;
+    max-width: 38rem;
+  }
+  .lead strong { color: var(--accent); font-weight: 600; }
+
+  section { display: grid; gap: 0.75rem; }
+  section p, section ul { margin: 0; max-width: 40rem; }
+  section ul { padding-left: 1.2rem; display: grid; gap: 0.4rem; }
+  a { color: var(--accent); text-underline-offset: 0.18em; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+  code {
+    font-family: var(--mono); font-size: 0.85em;
+    background: var(--accent-soft); padding: 0.08em 0.35em; border-radius: 4px;
+    overflow-wrap: anywhere;
+  }
+
+  .table-wrap {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow-x: auto;
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 0.975rem; line-height: 1.5; }
+  th, td { text-align: left; vertical-align: top; padding: 0.85rem 1rem; }
+  th {
+    font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--muted); font-weight: 600; border-bottom: 1px solid var(--line);
+  }
+  tbody tr + tr td { border-top: 1px solid var(--line); }
+  td:first-child { font-weight: 600; width: 26%; }
+  td .note { display: block; font-weight: 400; color: var(--muted); font-size: 0.9rem; }
+
+  @media (max-width: 640px) {
+    .page { padding-block: 2.25rem 3rem; gap: 2.25rem; }
+    thead { display: none; }
+    table, tbody, tr, td { display: block; width: auto; }
+    tbody tr { padding: 0.9rem 1rem; display: grid; gap: 0.5rem; }
+    tbody tr + tr { border-top: 1px solid var(--line); }
+    tbody tr + tr td { border-top: 0; }
+    td { padding: 0; }
+    td:first-child { width: auto; font-size: 1.02rem; }
+    td[data-label]::before {
+      content: attr(data-label); display: block;
+      font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--muted); font-weight: 600;
+    }
+  }
+
+  footer {
+    border-top: 1px solid var(--line); padding-top: 1.25rem;
+    color: var(--muted); font-size: 0.9rem;
+  }
+  footer p { margin: 0; }
+</style>
+</head>
+<body>
+<main class="page">
+  <header>
+    <div class="app">
+      <svg viewBox="0 0 28 28" aria-hidden="true">
+        <rect width="28" height="28" rx="7" fill="var(--accent)"></rect>
+        <circle cx="14" cy="8.5" r="3.2" fill="var(--surface)"></circle>
+        <path d="M8.5 22.5c0-5 2.4-8.6 5.5-8.6s5.5 3.6 5.5 8.6z" fill="var(--surface)"></path>
+      </svg>
+      Mannequin
+    </div>
+    <h1>Privacy Policy</h1>
+    <p class="date">Effective 3 November 2026 · Support: mannequin_app@icloud.com</p>
+    <p class="lead"><strong>Mannequin doesn't collect any data.</strong> The developer runs no servers and never receives anything from the app. There are no accounts, analytics, ads or tracking. The only service the app talks to is Valve's Steam.</p>
+  </header>
+
+  <section aria-labelledby="handles">
+    <h2 id="handles">What the app handles</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th scope="col">What</th><th scope="col">Where it goes</th><th scope="col">Where it's kept</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Your Steam account name and password</td>
+            <td data-label="Where it goes">Straight to Steam, to sign you in. If you sign in with a QR code instead, you approve it in the Steam Mobile app and Mannequin never sees your password.</td>
+            <td data-label="Where it's kept">The password isn't kept. The account name is kept in this device's Keychain.</td>
+          </tr>
+          <tr>
+            <td>Your Steam sign-in token</td>
+            <td data-label="Where it goes">Steam issues it when you sign in. The app sends it back only to Steam.</td>
+            <td data-label="Where it's kept">This device's Keychain. It isn't synced to iCloud or moved to a new device, and signing out deletes it.</td>
+          </tr>
+          <tr>
+            <td>Your Steam nickname</td>
+            <td data-label="Where it goes">Read from Steam and shown in Settings.</td>
+            <td data-label="Where it's kept">On this device. Signing out deletes it.</td>
+          </tr>
+          <tr>
+            <td>TF2 game files <span class="note">about 3.2 GB</span></td>
+            <td data-label="Where it goes">Downloaded from Steam's content servers, then converted on the device.</td>
+            <td data-label="Where it's kept">On this device, until you delete the app.</td>
+          </tr>
+          <tr>
+            <td>Your TF2 items and loadouts <span class="note">only when you import them</span></td>
+            <td data-label="Where it goes">Read from Steam and TF2's item server with your sign-in.</td>
+            <td data-label="Where it's kept">The loadouts you import are saved on this device.</td>
+          </tr>
+          <tr>
+            <td>Photos of your loadout</td>
+            <td data-label="Where it goes">Saved to your photo library when you take one. The app asks only to add photos and can't see the others.</td>
+            <td data-label="Where it's kept">Your photo library.</td>
+          </tr>
+          <tr>
+            <td>Saved loadouts and settings</td>
+            <td data-label="Where it goes">Nowhere.</td>
+            <td data-label="Where it's kept">On this device.</td>
+          </tr>
+          <tr>
+            <td>Loadout codes</td>
+            <td data-label="Where it goes">Made on the device. They go only where you paste or send them yourself.</td>
+            <td data-label="Where it's kept">Wherever you put them.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section aria-labelledby="steam">
+    <h2 id="steam">Steam</h2>
+    <p>Mannequin is not made by Valve and is not affiliated with Valve Corporation. When you sign in, download game files or import loadouts, the app connects directly to Valve's servers: <code>api.steampowered.com</code>, Steam's connection servers and Steam's content servers. What Valve does with that is covered by <a href="https://store.steampowered.com/privacy_agreement/" rel="noopener">Valve's privacy policy</a>.</p>
+    <p>While the app imports a loadout, Steam shows you as playing TF2 for a few seconds. Your Steam friends may see that, and a TF2 game running on another computer on your account is disconnected.</p>
+  </section>
+
+  <section aria-labelledby="tracking">
+    <h2 id="tracking">No tracking</h2>
+    <p>Mannequin has no analytics, no ads and no third-party code that collects data. It doesn't track you across other companies' apps or websites.</p>
+    <p>If you chose to share analytics with app developers in your device's settings, Apple may pass crash reports and usage numbers on to the developer. That's Apple's feature, covered by <a href="https://www.apple.com/legal/privacy/" rel="noopener">Apple's privacy policy</a>, and you can turn it off in Settings › Privacy &amp; Security › Analytics &amp; Improvements.</p>
+  </section>
+
+  <section aria-labelledby="delete">
+    <h2 id="delete">Deleting your data</h2>
+    <ul>
+      <li>Sign out in Mannequin's Settings to delete the sign-in token and nickname from the device.</li>
+      <li>You can also end the app's sign-in from Steam, for example with Deauthorize all other devices in your Steam Guard settings.</li>
+      <li>Deleting the app deletes the game files, saved loadouts and settings. Sign out first, because iOS can keep Keychain items after an app is deleted.</li>
+      <li>The developer holds no data about you, so there's nothing to ask the developer to delete.</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="children">
+    <h2 id="children">Children</h2>
+    <p>Mannequin doesn't collect anything from anyone, including children.</p>
+  </section>
+
+  <section aria-labelledby="changes">
+    <h2 id="changes">Changes</h2>
+    <p>If a version of the app ever handles data differently, this page will be updated with a new date before that version comes out.</p>
+  </section>
+
+  <section aria-labelledby="contact">
+    <h2 id="contact">Support and contact</h2>
+    <p>For help with Mannequin or questions about this policy, email mannequin_app@icloud.com.</p>
+  </section>
+
+  <footer>
+    <p>Team Fortress is a registered trademark of Valve Corporation. Mannequin is not affiliated with Valve Corporation.</p>
+  </footer>
+</main>
+</body>
+</html>
