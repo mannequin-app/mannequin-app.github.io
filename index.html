@@ -126,8 +126,8 @@
       Mannequin
     </div>
     <h1>Privacy Policy</h1>
-    <p class="date">Effective 3 November 2026 · Support: mannequin_app@icloud.com</p>
-    <p class="lead"><strong>Mannequin doesn't collect any data.</strong> The developer runs no servers and never receives anything from the app. There are no accounts, analytics, ads or tracking. The only service the app talks to is Valve's Steam.</p>
+    <p class="date">Effective 8 November 2026 · Support: mannequin_app@icloud.com</p>
+    <p class="lead"><strong>Mannequin doesn't collect any data.</strong> There are no accounts, sign-ins, analytics, ads or tracking. The only server the app talks to is its own file server, which sends the app the data it needs and keeps no record of who downloads it.</p>
   </header>
 
   <section aria-labelledby="handles">
@@ -139,29 +139,14 @@
         </thead>
         <tbody>
           <tr>
-            <td>Your Steam account name and password</td>
-            <td data-label="Where it goes">Straight to Steam, to sign you in. If you sign in with a QR code instead, you approve it in the Steam Mobile app and Mannequin never sees your password.</td>
-            <td data-label="Where it's kept">The password isn't kept. The account name is kept in this device's Keychain.</td>
-          </tr>
-          <tr>
-            <td>Your Steam sign-in token</td>
-            <td data-label="Where it goes">Steam issues it when you sign in. The app sends it back only to Steam.</td>
-            <td data-label="Where it's kept">This device's Keychain. It isn't synced to iCloud or moved to a new device, and signing out deletes it.</td>
-          </tr>
-          <tr>
-            <td>Your Steam nickname</td>
-            <td data-label="Where it goes">Read from Steam and shown in Settings.</td>
-            <td data-label="Where it's kept">On this device. Signing out deletes it.</td>
-          </tr>
-          <tr>
-            <td>TF2 game files <span class="note">about 3.2 GB</span></td>
-            <td data-label="Where it goes">Downloaded from Steam's content servers, then converted on the device.</td>
+            <td>The app's data <span class="note">about 3.5 GB</span></td>
+            <td data-label="Where it goes">Downloaded from the app's file server when you set the app up, then processed on the device. Each time the app opens, it asks the server whether there's an update, and downloads only what changed if you accept it.</td>
             <td data-label="Where it's kept">On this device, until you delete the app.</td>
           </tr>
           <tr>
-            <td>Your TF2 items and loadouts <span class="note">only when you import them</span></td>
-            <td data-label="Where it goes">Read from Steam and TF2's item server with your sign-in.</td>
-            <td data-label="Where it's kept">The loadouts you import are saved on this device.</td>
+            <td>Your IP address</td>
+            <td data-label="Where it goes">Seen by the file server, as by any website, so it can send the files back. The app sends the server nothing else about you: no account, name or device ID.</td>
+            <td data-label="Where it's kept">Nowhere. The file server keeps no request logs.</td>
           </tr>
           <tr>
             <td>Photos of your loadout</td>
@@ -175,7 +160,7 @@
           </tr>
           <tr>
             <td>Loadout codes</td>
-            <td data-label="Where it goes">Made on the device. They go only where you paste or send them yourself.</td>
+            <td data-label="Where it goes">Made and read on the device. They go only where you paste or send them yourself.</td>
             <td data-label="Where it's kept">Wherever you put them.</td>
           </tr>
         </tbody>
@@ -183,10 +168,10 @@
     </div>
   </section>
 
-  <section aria-labelledby="steam">
-    <h2 id="steam">Steam</h2>
-    <p>Mannequin is not made by Valve and is not affiliated with Valve Corporation. When you sign in, download game files or import loadouts, the app connects directly to Valve's servers: <code>api.steampowered.com</code>, Steam's connection servers and Steam's content servers. What Valve does with that is covered by <a href="https://store.steampowered.com/privacy_agreement/" rel="noopener">Valve's privacy policy</a>.</p>
-    <p>While the app imports a loadout, Steam shows you as playing TF2 for a few seconds. Your Steam friends may see that, and a TF2 game running on another computer on your account is disconnected.</p>
+  <section aria-labelledby="server">
+    <h2 id="server">The file server</h2>
+    <p>The app downloads from <code>mannequin-files.mannequin-app.workers.dev</code>, which runs on Cloudflare. The server only sends files, and its request logs are turned off. Like any web host, Cloudflare sees your IP address while it delivers the files and protects its network. What Cloudflare does with that is covered by <a href="https://www.cloudflare.com/privacypolicy/" rel="noopener">Cloudflare's privacy policy</a>.</p>
+    <p>The app doesn't sign in to Steam or connect to it. Mannequin is not made by Valve and is not affiliated with Valve Corporation.</p>
   </section>
 
   <section aria-labelledby="tracking">
@@ -198,9 +183,7 @@
   <section aria-labelledby="delete">
     <h2 id="delete">Deleting your data</h2>
     <ul>
-      <li>Sign out in Mannequin's Settings to delete the sign-in token and nickname from the device.</li>
-      <li>You can also end the app's sign-in from Steam, for example with Deauthorize all other devices in your Steam Guard settings.</li>
-      <li>Deleting the app deletes the game files, saved loadouts and settings. Sign out first, because iOS can keep Keychain items after an app is deleted.</li>
+      <li>Deleting the app deletes everything it downloaded and made: its data, saved loadouts and settings. Photos you saved stay in your photo library.</li>
       <li>The developer holds no data about you, so there's nothing to ask the developer to delete.</li>
     </ul>
   </section>
